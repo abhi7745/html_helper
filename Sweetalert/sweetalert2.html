@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Sweetalert</title>
+</head>
+<body style="text-align: center;">
+
+    <h1>Basic 2 Sweetalert</h1> 
+    <button onclick="generatingResume()">First</button>
+    <button onclick="generatedResume()">second</button>
+    <button onclick="errorResume()">third</button>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.26/dist/sweetalert2.all.min.js"></script>
+    <script>
+
+    // Generating popup
+      function generatingResume(){
+          Swal.fire({
+            title: 'Generating Resume',
+            text: 'Please wait...',
+            imageUrl: "https://thumbs.gfycat.com/EnchantingInbornDogwoodtwigborer-max-1mb.gif",
+            imageWidth: 200,
+            showConfirmButton: false,
+            allowOutsideClick: false,
+            allowEscapeKey: false,
+            allowEnterKey: false,
+          });
+        }
+  
+    // completed popup
+        function generatedResume(){
+        Swal.fire({
+          text: "Resume Generated Successfully",
+          icon: "success",
+          confirmButtonText: "View Resume",
+        }).then((result) => {
+              if(result.value){
+                    window.location.href="{% url 'candidate.resume' %}"
+              }
+          });
+      }
+      
+    // error popup
+      function errorResume(message){
+        Swal.fire({
+          text: message??"Error Occured",
+          icon: "error",
+        });
+      }
+      
+    </script>
+</body>
+</html>
