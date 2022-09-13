@@ -1,0 +1,31 @@
+example link : https://codepen.io/awesomeSri/pen/WBKwpz
+
+<script>
+    $(function(){
+        alert('ok man')
+        
+        // case - 1
+        var href = $('#mock_test').attr("href");
+        $('#mock_test').attr("hiddenhref", href);
+        $('#mock_test').removeAttr("href");
+        
+        $("#mock_test").click(function(){
+            url = $(this).attr("hiddenhref");
+            // window.open(url);
+            window.location.href = url;
+        });
+
+        // case - 2
+        $("a").each(function (index, element){
+            var href = $(this).attr("href");
+            $(this).attr("hiddenhref", href);
+            $(this).removeAttr("href");
+        });
+        $("a").click(function(){
+            url = $(this).attr("hiddenhref");
+            // window.open(url);
+            window.location.href = url;
+        })
+
+        });
+</script>
