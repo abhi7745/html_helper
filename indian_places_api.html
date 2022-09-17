@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search bar</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+        body{
+        background: #f2f2f2;
+        font-family: 'Open Sans', sans-serif;
+        }
+
+        .search {
+        width: 100%;
+        position: relative;
+        display: flex;
+        }
+
+        .searchTerm {
+        width: 100%;
+        border: 3px solid #00B4CC;
+        border-right: none;
+        padding: 5px;
+        height: 20px;
+        border-radius: 5px 0 0 5px;
+        outline: none;
+        color: #9DBFAF;
+        }
+
+        .searchTerm:focus{
+        color: #00B4CC;
+        }
+
+        .searchButton {
+        width: 40px;
+        height: 36px;
+        border: 1px solid #00B4CC;
+        background: #00B4CC;
+        text-align: center;
+        color: #fff;
+        border-radius: 0 5px 5px 0;
+        cursor: pointer;
+        font-size: 20px;
+        }
+
+        .wrap{
+        width: 30%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        }
+        li{
+            padding-top: 15px;
+            padding-bottom: 15px;
+            list-style: none;
+            font-size: 12px;
+            border-bottom: 1px solid gray;
+        }
+        ul{
+            padding: 15px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgb(168, 167, 167);
+        }
+        .search_list{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wrap">
+        <div id="search_selection">
+            <div class="search">
+                <input type="text" id="search" class="searchTerm" value="" placeholder="search place">
+                <button type="submit" class="searchButton">
+                  <i class="fa fa-search"></i>
+               </button>
+             </div>
+             <ul class="search_list"id="list" >
+                 
+             </ul>
+        </div>
+    </div>
+    
+
+     <script>
+        //setup before functions
+        var typingTimer;                //timer identifier
+        var doneTypingInterval = 1000;  //time in ms (1 seconds)
+       
+
+        //on keyup, start the countdown
+        $('#search').keyup(function(){
+            clearTimeout(typingTimer);
+            if ($('#search').val()) {
+                typingTimer = setTimeout(doneTyping, doneTypingInterval);
+            }
+        });
+        var list = document.getElementById("list");
+        function doneTyping () {
+            var search = $('#search').val();
+            var token  = "pk.eyJ1Ijoia2V2b2pvcCIsImEiOiJjbDQ5azlsZW8wNmZ1M2hvNzcwcGpvMjNpIn0.UpQvTFXdpCC2JQvkM3ZYfw"; //mapbox token
+            $.getJSON('https://api.mapbox.com/geocoding/v5/mapbox.places/'+search+'.json?country=in&proximity=ip&language=en&access_token='+token, function(json_data){
+            list.innerHTML = "";
+           for(var i=0; i<json_data.features.length; i++)
+            {
+                var listItem = document.createElement("LI");
+
+                listItem.textContent = json_data.features[i].place_name;
+
+                list.appendChild(listItem);
+                listItem.addEventListener("click", function(){
+                    event.preventDefault();
+                    //send listitem to input
+                    $('#search').val(this.textContent);
+                   
+                    $.ajax({
+                        url: "",
+                        type: "POST",
+                        data: listItem.content,
+                        success: function(data){
+                            alert("data");
+                            list.innerHTML = "";
+
+                        }
+                    });
+                });
+            } 
+            //clear the list
+            //
+            $('.search_list').slideDown();
+            $('#search_selection').mouseleave(function(){
+                $('.search_list').slideUp();
+            });
+            });
+            
+
+        }
+     </script>
+
+</body>
+</html>
