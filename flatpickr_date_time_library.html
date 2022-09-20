@@ -1,0 +1,68 @@
+<!-- documentation : https://flatpickr.js.org/ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="text-align: center;">
+    
+    
+    <br><br><br>
+    Date : <input type="date" class="date_validator"> <br><br>
+    Only Select Current Date: <input type="date" class="current_date_validator"> <br><br>
+    Time : <input type="time" class="time_validator">
+
+
+<!-- flatpickr start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+<script>
+    //enableTime: true,
+    //altInput: true,
+    //minDate: "today",
+    //altFormat: 'F j, Y (h:S K)',
+    //theme: "material_blue", 
+
+    flatpickr(".date_validator", {
+        altInput: true,
+        // minDate: "today",
+        // minDate: new Date(),
+        // minDate: new Date().fp_incr(1),
+        //altFormat: 'Y F j',
+    });
+    flatpickr(".current_date_validator", {
+        altInput: true,
+        // minDate: "today",
+        minDate: new Date(),
+        // minDate: new Date().fp_incr(1),
+        //altFormat: 'Y F j',
+    });
+
+    flatpickr(".time_validator", {
+        enableTime: true,
+        noCalendar: true,
+        dateFormat: "h:S K",
+        //minTime: new Date()
+        //defaultDate: "13:45"
+    }); 
+
+    // clearing time slot value
+    flatpickr(".flatpickr", {
+        enableTime: true,
+        noCalendar: true,
+        dateFormat: "h:S K",
+        wrap: true,
+    });
+
+
+
+</script>
+<!-- flatpickr end -->
+
+</body>
+</html>
