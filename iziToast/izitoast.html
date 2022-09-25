@@ -1,0 +1,111 @@
+<!-- documentation : https://izitoast.marcelodolza.com/ -->
+<!-- example : https://codepen.io/cupof-github/pen/xRrzZw -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>izitoast</title>
+</head>
+<body>
+
+    <h1>IziToast</h1>
+
+    <div class="container">
+        <br />
+        <button class="btn btn-primary" id="infoClick">Info</button>
+        <button class="btn btn-success" id="successClick">Success</button>
+        <button class="btn btn-warning" id="warningClick">Warning</button>
+        <button class="btn btn-danger" id="errorClick">Error</button>
+        <button class="btn btn-default" id="customClick">Custom</button>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/css/iziToast.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/js/iziToast.min.js" integrity="sha512-Zq9o+E00xhhR/7vJ49mxFNJ0KQw1E1TMWkPTxrWcnpfEFDEXgUiwJHIKit93EW/XxE31HSI5GEOW06G6BF1AtA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+
+            // settings
+            iziToast.settings({
+            timeout: 3000, // default timeout
+            resetOnHover: true,
+            // icon: '', // icon class
+            transitionIn: 'flipInX',
+            transitionOut: 'flipOutX',
+            position: 'topRight', // bottomRight, bottomLeft, topRight, topLeft, topCenter, bottomCenter, center
+            onOpen: function () {
+                console.log('callback abriu!');
+            },
+            onClose: function () {
+                console.log("callback fechou!");
+            }
+            });
+
+
+        // info
+        $('#infoClick').click(function () {
+        iziToast.info({position: "center", title: 'Hello', message: 'iziToast.info()'});
+        }); // ! click
+
+         // success
+        $('#successClick').click(function () {
+        iziToast.success({timeout: 5000, icon: 'fa fa-chrome', title: 'OK', message: 'iziToast.sucess() with custom icon!'});
+        }); // ! .
+        
+
+        // warning
+        $('#warningClick').click(function () {
+        iziToast.warning({position: "bottomLeft", title: 'Caution', message: '日本語環境のテスト'});
+        });
+
+        // error
+        $('#errorClick').click(function () {
+        iziToast.error({title: 'Error', message: 'Illegal operation'});
+        });
+
+        // custom toast
+        $('#customClick').click(function () {
+
+        iziToast.show({
+            color: 'dark',
+            icon: 'fa fa-user',
+            title: 'Hey',
+            message: 'Custom Toast!',
+            position: 'center', // bottomRight, bottomLeft, topRight, topLeft, topCenter, bottomCenter
+            progressBarColor: 'rgb(0, 255, 184)',
+            buttons: [
+            [
+                '<button>Ok</button>',
+                function (instance, toast) {
+                alert("Hello world!");
+                }
+            ],
+            [
+                '<button>Close</button>',
+                function (instance, toast) {
+                instance.hide({
+                    transitionOut: 'fadeOutUp'
+                }, toast);
+                }
+            ]
+            ]
+        });
+
+        }); // ! .click()
+
+        $('#any').click(function(){
+        iziToast.error({
+            title: 'Errorカラー',
+            message: 'iziToast.error()'
+        });
+        });
+
+
+    </script>
+    
+</body>
+</html>
