@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>FilePond from CDN</title>
+
+  <!-- Filepond stylesheet -->
+  <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
+
+  <link
+    href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css"
+    rel="stylesheet"/>
+
+</head>
+<body style="display:flex;justify-content:center;margin-top: 200px;">
+
+    <!-- We'll transform this input into a pond -->
+    <form action="" style="width: 40%;">
+    <input type="file" class="filepond" multiple>
+    </form>
+
+  <!-- Load FilePond library -->
+  <script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
+  <script src="https://unpkg.com/filepond/dist/filepond.js"></script>
+
+  <!-- Turn all file input elements into ponds -->
+  <script>
+
+    // Register the plugin
+    FilePond.registerPlugin(FilePondPluginImagePreview);
+    
+    FilePond.parse(document.body);
+  </script>
+
+</body>
+</html>
