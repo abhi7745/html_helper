@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geolocation</title>
+</head>
+<body>
+
+
+    <!-- case-1 -->
+    <button onclick="getPreciseLocation()">Get Location</button>
+    <p id="location"></p>
+    <hr>
+
+    <script>
+        var p = document.getElementById('location');
+
+        function getPreciseLocation(){
+            if (navigator.geolocation){
+                Location = navigator.geolocation.getCurrentPosition(showExactPosition);
+                console.log(location)
+            }
+            else{
+                p.innerHTML='Geolocation is not supported'
+            }
+        }
+
+        function showExactPosition(position){
+            p.innerHTML = "Latitude : " +position.coords.latitude+ " Longitude : "+position.coords.longitude
+        }
+    </script>
+
+
+    <!-- case-2 -->
+    <p>
+        Your location is <span id="latitude">0.00</span>° latitude by <span id="longitude">0.00</span>° longitude.
+    </p>
+    <button id="get-location">Get My Location</button>
+
+    <script>
+        let button = document.getElementById("get-location");
+        let latText = document.getElementById("latitude");
+        let longText = document.getElementById("longitude");
+
+        button.addEventListener("click", () => {
+        navigator.geolocation.getCurrentPosition((position) => {
+            let lat = position.coords.latitude;
+            let long = position.coords.longitude;
+
+            latText.innerText = lat.toFixed(2);
+            longText.innerText = long.toFixed(2);
+        });
+        });
+
+    </script>
+
+
+
+
+
+</body>
+</html>
