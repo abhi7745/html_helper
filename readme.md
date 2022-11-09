@@ -14,4 +14,4 @@
 - [Filepond](https://github.com/abhi7745/html_helper/tree/master/Filepond)
 - [geolocation using javascript](https://github.com/abhi7745/html_helper/tree/master/geolocation) 
 - [webcam.js-take-picture](https://github.com/abhi7745/html_helper/tree/master/webcam.js-take-picture)
-- [bootstrap_icons & glyphicons & uxwing_svg](https://github.com/abhi7745/html_helper/tree/master/bootstrap_icons&glyphicons)
+- [bootstrap_icons & glyphicons & uxwing_svg](https://github.com/abhi7745/html_helper/tree/master/bootstrap_icons&glyphicons&uxwing_svg)
