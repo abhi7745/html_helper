@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- open-source - quilljs cdn link-->
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <link href="//cdn.quilljs.com/1.3.6/quill.bubble.css" rel="stylesheet">
+</head>
+<body>
+    <form>
+        <div id="editor" required>
+        </div>
+        <!-- <button type="submit">Submit</button> -->
+        <br><br><br><br>
+        <input type="text" id="editor-input" name="editor-input" style="width: 100%;">
+      </form>
+      
+
+
+
+
+
+      <!-- Include the Quill library -->
+      <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+      
+      <script>
+        var quill = new Quill('#editor', {
+          theme: 'snow',
+          placeholder: 'Type your text here...',
+        });
+      
+        var editorInput = document.querySelector('#editor-input');
+        
+        // qull text change event happen then, it will trigger
+        quill.on('text-change', function() {
+          var html = quill.root.innerHTML; // it return the quill source code
+          // when the quill.root.HTML is empty, then "editor-input" set to null, otherwise set quill source code to that input field
+          editorInput.value = html === '<p><br></p>' ? '' : html;
+
+        });
+      </script>
+      
+</body>
+</html>
