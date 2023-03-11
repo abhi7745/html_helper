@@ -34,8 +34,11 @@
 <body>
 
 <div class="form-group">
+  <form action="">
     <label>Discription</label>
     <textarea id="message" name="details" class="form-control" placeholder="Page Content" cols="30" rows="30" style="width: 100%;"></textarea>
+    <button id="btn">Submit</button>
+  </form>
 </div>
 
 
@@ -51,6 +54,17 @@
   $(function () {
     //Add text editor
     $("#message").wysihtml5();
+  });
+</script>
+
+<script>
+  $(document).ready(function() {
+    
+      $('#btn').click(function(){
+          alert($('#message').val())
+          // alert('sdfa');
+      })
+
   });
 </script>
     
