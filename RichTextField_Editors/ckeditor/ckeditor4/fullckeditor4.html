@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ckeditor4</title>
+    <!-- Ckeditor4 cnd -->
+    <!-- <script src="https://cdn.ckeditor.com/4.20.2/basic/ckeditor.js"></script> -->
+    <script src="https://cdn.ckeditor.com/4.20.2/standard/ckeditor.js"></script>
+
+</head>
+<body>
+    <form action="">
+        <textarea name="editor" id="" cols="30" rows="10" required></textarea>
+        <button>Submit</button>
+    </form>
+
+
+    <script>
+        CKEDITOR.replace('editor');
+    </script>
+
+
+    <!-- <script>
+        CKEDITOR.replace('editor', {
+            // toolbar: [
+            //     ['Bold', 'Italic', 'Underline', 'Strike', 'TextColor', '-', 'NumberedList', 'BulletedList', '-', 'Link', 'Unlink', 'Image'],
+            // ],
+            // removeButtons:'About'
+        });
+    </script> -->
+
+</body>
+</html>

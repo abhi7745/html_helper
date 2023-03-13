@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ckeditor4</title>
+    <!-- Ckeditor4 cnd -->
+    <!-- <script src="https://cdn.ckeditor.com/4.20.2/basic/ckeditor.js"></script> -->
+    <script src="https://cdn.ckeditor.com/4.20.2/standard/ckeditor.js"></script>
+</head>
+<body>
+    <form action="">
+        <textarea name="editor" id="" cols="30" rows="10"></textarea>
+        <button>Submit</button>
+    </form>
+
+
+    <!-- <script>
+        CKEDITOR.replace('editor', {
+          height: 150,
+          removeButtons: 'PasteFromWord'
+        });
+    </script> -->
+
+   
+
+    <script>
+        CKEDITOR.replace('editor', {
+          // Define the toolbar groups as it is a more accessible solution.
+          toolbarGroups: [{
+              "name": "basicstyles",
+              "groups": ["basicstyles"]
+            },
+            {
+              "name": "links",
+              "groups": ["links"]
+            },
+            {
+              "name": "paragraph",
+              "groups": ["list", "blocks"]
+            },
+            {
+              "name": "document",
+              "groups": ["mode"]
+            },
+            {
+              "name": "insert",
+              "groups": ["insert"]
+            },
+            // {
+            //   "name": "styles",
+            //   "groups": ["styles"]
+            // },
+            // {
+            //   "name": "about",
+            //   "groups": ["about"]
+            // }
+          ],
+          // Remove the redundant buttons from toolbar groups defined above.
+          removeButtons: 'Underline,Strike,Subscript,Superscript,Anchor,Styles,Specialchar,PasteFromWord'
+        });
+      </script>
+
+
+</body>
+</html>
