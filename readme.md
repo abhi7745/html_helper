@@ -19,3 +19,4 @@
 - [RichTextField_Editor - wysihtml5](https://github.com/abhi7745/html_helper/tree/master/RichTextField_Editors/wysihtml5)
 - [RichTextField_Editor - summernote](https://github.com/abhi7745/html_helper/tree/master/RichTextField_Editors/summernote)
 - [RichTextField_Editor - ckeditor](https://github.com/abhi7745/html_helper/tree/master/RichTextField_Editors/ckeditor)
+- [#id_scrolling(smooth scrolling)](https://github.com/abhi7745/html_helper/tree/master/RichTextField_Editors/id_scrolling)
