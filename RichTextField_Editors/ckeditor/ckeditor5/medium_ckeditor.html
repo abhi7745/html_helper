@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ckeditor5 - Minimal Editor</title>
+    <style>
+        #container {
+            width: 1000px;
+            margin: 20px auto;
+        }
+        .ck-editor__editable[role="textbox"] {
+            /* editing area */
+            min-height: 200px;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <div id="container">
+    <form action="" method="get">
+        <textarea name="editor" id="editor" cols="30" rows="10"></textarea><br>
+        <button type="submit">Submit</button>
+    </form>
+
+    <br>
+    <input type="text" id="ckeditor_data" style="width: 100%;height: 10vh;">
+    
+    </div>
+    <!-- cdn for ckeditor5 -->
+    <script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
+    <!-- initializing ckeditor5 -->
+    <!-- <script>
+        ClassicEditor
+            .create( document.querySelector( '#editor' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+    
+        // Add an event listener to the form to submit the CKEditor5 data
+        document.querySelector('form').addEventListener('submit', function(event) {
+            // Get the CKEditor5 data from the instance
+            var editorData = ClassicEditor.instances.editor.getData();
+            // Set the textarea value to the CKEditor5 data
+            document.getElementById('editor').value = editorData;
+        });
+        
+    </script> -->
+
+    <!-- initializing ckeditor5 -->
+    <script>
+        ClassicEditor
+            .create( document.querySelector( '#editor' ) )
+            .then( editor => {
+                const editorInput = document.querySelector('#ckeditor_data');
+                editor.model.document.on('change:data', () => {
+                    const data = editor.getData();
+                    editorInput.value = data || null;
+                });
+            } )
+            .catch( error => {
+                console.error( error );
+            } );
+    </script>
+
+    
+    
+</body>
+</html>
