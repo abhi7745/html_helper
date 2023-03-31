@@ -20,11 +20,13 @@
 
     <form method="get">
         <textarea id="summernote" name="editordata"></textarea>
+        <input type="text" id="summernote_data" style="width:95%;">
         <button id="btn">Submit</button>
     </form>
+
     
 
-    <script>
+    <!-- <script>
         $(document).ready(function() {
             $('#summernote').summernote();
             $('#btn').click(function(){
@@ -32,6 +34,42 @@
                 // alert('sdfa');
             })
         });
-    </script>
+    </script> -->
+
+
+<script>
+    $(document).ready(function() {
+        // Add text editor
+        $('#summernote').summernote({
+        height: 300, // set the height of the editor
+        toolbar: [
+            ['style', ['bold', 'italic', 'underline', 'clear']],
+            ['font', ['strikethrough', 'superscript', 'subscript']],
+            ['fontsize', ['fontsize']],
+            ['color', ['color']],
+            ['para', ['ul', 'ol', 'paragraph']],
+            ['height', ['height']]
+        ],
+        callbacks: {
+            onChange: function(contents) {
+
+            // $('#summernote_data').val(contents);
+
+            data = contents === '<p><br></p>' ? '' : contents;
+
+            $('#summernote_data').val(data)
+            
+            }
+        }
+        });
+
+        // Get editor content on button click
+        $('#btn').click(function(){
+        alert($('#summernote').val());
+        });
+
+    }); //document.ready end
+
+</script>
 </body>
 </html>
