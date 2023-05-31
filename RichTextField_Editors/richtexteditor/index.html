@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Richtexteditor.com</title>
+
+    <link rel="stylesheet" href="richtexteditor/richtexteditor/rte_theme_default.css"/>
+    <!-- <link rel="stylesheet" href="richtexteditor/richtexteditor/runtime/richtexteditor_content.css"/> -->
+    <script type="text/javascript" src="richtexteditor/richtexteditor/rte.js"></script>
+    <script type="text/javascript" src='richtexteditor/richtexteditor/plugins/all_plugins.js'></script>
+
+
+</head>
+<body>
+    <a href="https://richtexteditor.com/" target="_blank" style="text-align: center;"><h1>Richtexteditor.com</h1></a>
+
+    <!-- <div id="div_editor1" > 
+        <p>Initial Document Content</p> 
+    </div> -->
+
+    <textarea id="div_editor1" >
+        Initial Document Content
+    </textarea>  
+
+
+
+<!-- 
+    <script>
+        var editor1 = new RichTextEditor("#div_editor1"); 
+    </script> -->
+
+    
+    <script>
+        var editor1cfg = {}
+        editor1cfg.toolbar = "basic";
+        var editor1 = new RichTextEditor("#div_editor1", editor1cfg);
+    </script>
+
+</body>
+</html>

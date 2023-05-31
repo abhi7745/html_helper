@@ -6,3 +6,4 @@
 - [ckeditor](https://github.com/abhi7745/html_helper/tree/master/RichTextField_Editors/ckeditor)
 - [tinyMCE](https://github.com/abhi7745/html_helper/tree/master/RichTextField_Editors/tinyMCE)
 - [wysihtml](https://github.com/abhi7745/html_helper/tree/master/RichTextField_Editors/wysihtml)
+- [richtexteditor.com](https://github.com/abhi7745/html_helper/tree/master/RichTextField_Editors/richtexteditor)
