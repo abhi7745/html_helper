@@ -23,4 +23,5 @@
 - [RichTextField_Editor - tinyMCE](https://github.com/abhi7745/html_helper/tree/master/RichTextField_Editors/tinyMCE)
 - [RichTextField_Editor - trix](https://github.com/abhi7745/html_helper/tree/master/RichTextField_Editors/trix)
 - [RichTextField_Editor - wysihtml](https://github.com/abhi7745/html_helper/tree/master/RichTextField_Editors/wysihtml)
+- [RichTextField_Editor - richtexteditor](https://github.com/abhi7745/html_helper/tree/master/RichTextField_Editors/richtexteditor)
 - [#id_scrolling(smooth scrolling)](https://github.com/abhi7745/html_helper/tree/master/RichTextField_Editors/id_scrolling)
